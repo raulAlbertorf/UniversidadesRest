@@ -31,7 +31,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "aulas" , schema = "universidad")
+//@Table(name = "aulas" , schema = "universidad")
+@Table(name = "aulas")
 public class Aula implements Serializable {
 
 	@Id
@@ -57,7 +58,7 @@ public class Aula implements Serializable {
 	@Column(name = "fecha_modificacion")
 	private Date fechaModificacion;
 
-	@ManyToOne(optional = true , cascade = { CascadeType.PERSIST , CascadeType.MERGE })
+	@ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "pabellon_id", foreignKey = @ForeignKey(name = "FK_PABELLON_ID"))
 	private Pabellon pabellon;
 

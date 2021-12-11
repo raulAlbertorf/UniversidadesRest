@@ -20,6 +20,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,7 +32,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "pabellones" , schema = "universidad")
+//@Table(name = "pabellones" , schema = "universidad")
+@Table(name = "pabellones")
 public class Pabellon implements Serializable {
 
 	@Id
@@ -56,8 +59,8 @@ public class Pabellon implements Serializable {
 	})
 	private Direccion direccion;
 
-	//@OneToMany(mappedBy = "pabellon" , fetch = FetchType.LAZY)
-	//private Set<Aula> aulas = new HashSet<Aula>();
+	@OneToMany(mappedBy = "pabellon", fetch = FetchType.LAZY)
+	private Set<Aula> aulas = new HashSet<Aula>();
 	
 	//@OneToMany(mappedBy = "pabellon" , fetch = FetchType.LAZY)
 	//private Set<Aula> empleados = new HashSet<Aula>();

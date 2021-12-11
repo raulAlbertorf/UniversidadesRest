@@ -23,7 +23,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "empleados" , schema = "universidad")
+//@Table(name = "empleados" , schema = "universidad")
+@Table(name = "empleados")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Empleado extends Persona {
 
