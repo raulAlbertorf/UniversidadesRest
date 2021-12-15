@@ -4,16 +4,17 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-import com.ibm.academia.apirest.entities.Alumno;
-import com.ibm.academia.apirest.entities.Aula;
-import com.ibm.academia.apirest.entities.Carrera;
-import com.ibm.academia.apirest.entities.Direccion;
-import com.ibm.academia.apirest.entities.Empleado;
-import com.ibm.academia.apirest.entities.Pabellon;
-import com.ibm.academia.apirest.entities.Persona;
-import com.ibm.academia.apirest.entities.Profesor;
+
 import com.ibm.academia.apirest.enums.Pizarron;
 import com.ibm.academia.apirest.enums.TipoEmpleado;
+import com.ibm.academia.apirest.models.entities.Alumno;
+import com.ibm.academia.apirest.models.entities.Aula;
+import com.ibm.academia.apirest.models.entities.Carrera;
+import com.ibm.academia.apirest.models.entities.Direccion;
+import com.ibm.academia.apirest.models.entities.Empleado;
+import com.ibm.academia.apirest.models.entities.Pabellon;
+import com.ibm.academia.apirest.models.entities.Persona;
+import com.ibm.academia.apirest.models.entities.Profesor;
 import com.ibm.academia.apirest.repositories.AulaRepository;
 
 public class DatosDummy {

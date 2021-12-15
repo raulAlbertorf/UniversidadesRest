@@ -25,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.academia.apirest.entities.Carrera;
 import com.ibm.academia.apirest.exceptions.BadRequestException;
 import com.ibm.academia.apirest.exceptions.NotFoundException;
+import com.ibm.academia.apirest.mapper.CarreraMapper;
+import com.ibm.academia.apirest.models.DTO.CarreraDTO;
+import com.ibm.academia.apirest.models.entities.Carrera;
 import com.ibm.academia.apirest.services.CarreraDAO;
 
 @RestController
@@ -120,5 +122,25 @@ public class CarreraController {
 		carreraDao.eliminarPorId(carreraId);
 		respuesta.put("OK", "Carrera ID: "+carreraId+" eliminada exitosamente");
 		return new ResponseEntity<Map<String, Object>>(respuesta,HttpStatus.ACCEPTED);
+	}
+	
+	/**
+	 * Endpoint para buscar todas las carreras con la información minima requerida mapeada de un DTO
+	 * @return lista de objetos CarreraDTO
+	 * @author RaulRF - 15/12/2021
+	 */
+	@GetMapping("/carreras/dto")
+	public ResponseEntity<?> obtenerCarreraDTO(){
+		 List<Carrera> carreras = (List<Carrera>) carreraDao.buscarTodos();
+		 if(carreras.isEmpty()) {
+			 throw new NotFoundException("No existen carreras en la base de datos.");
+		 }
+		 
+		 List<CarreraDTO> listaCarreras = carreras
+				 .stream()
+				 .map(CarreraMapper::mapCarrera)
+				 .collect(Collectors.toList());
+		 
+		 return new ResponseEntity<List<CarreraDTO>>(listaCarreras, HttpStatus.OK);
 	}
 }

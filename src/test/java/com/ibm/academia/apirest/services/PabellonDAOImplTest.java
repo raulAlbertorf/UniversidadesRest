@@ -13,9 +13,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Aula;
-import com.ibm.academia.apirest.entities.Pabellon;
 import com.ibm.academia.apirest.enums.Pizarron;
+import com.ibm.academia.apirest.models.entities.Aula;
+import com.ibm.academia.apirest.models.entities.Pabellon;
 import com.ibm.academia.apirest.repositories.PabellonRepository;
 
 public class PabellonDAOImplTest {

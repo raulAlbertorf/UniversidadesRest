@@ -15,10 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Aula;
-import com.ibm.academia.apirest.entities.Pabellon;
-import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.enums.Pizarron;
+import com.ibm.academia.apirest.models.entities.Aula;
+import com.ibm.academia.apirest.models.entities.Pabellon;
+import com.ibm.academia.apirest.models.entities.Persona;
 
 @DataJpaTest
 public class AulaRepositoryTest {

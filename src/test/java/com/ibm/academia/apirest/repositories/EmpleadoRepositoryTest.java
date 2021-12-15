@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.enums.TipoEmpleado;
+import com.ibm.academia.apirest.models.entities.Persona;
 
 
 @DataJpaTest

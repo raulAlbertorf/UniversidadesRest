@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.academia.apirest.entities.Carrera;
-import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.exceptions.NotFoundException;
+import com.ibm.academia.apirest.models.entities.Carrera;
+import com.ibm.academia.apirest.models.entities.Persona;
 import com.ibm.academia.apirest.services.AlumnoDAO;
 import com.ibm.academia.apirest.services.CarreraDAO;
 import com.ibm.academia.apirest.services.PersonaDAO;

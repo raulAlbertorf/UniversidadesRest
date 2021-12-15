@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.data.util.Optionals;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Aula;
-import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.enums.Pizarron;
+import com.ibm.academia.apirest.models.entities.Aula;
+import com.ibm.academia.apirest.models.entities.Persona;
 import com.ibm.academia.apirest.repositories.PersonaRepository;
 
 public class PersonaDAOImplTest {

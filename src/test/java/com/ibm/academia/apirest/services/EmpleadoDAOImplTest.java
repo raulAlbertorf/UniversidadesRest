@@ -13,10 +13,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Carrera;
-import com.ibm.academia.apirest.entities.Empleado;
-import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.enums.TipoEmpleado;
+import com.ibm.academia.apirest.models.entities.Carrera;
+import com.ibm.academia.apirest.models.entities.Empleado;
+import com.ibm.academia.apirest.models.entities.Persona;
 import com.ibm.academia.apirest.repositories.EmpleadoRepository;
 
 public class EmpleadoDAOImplTest {

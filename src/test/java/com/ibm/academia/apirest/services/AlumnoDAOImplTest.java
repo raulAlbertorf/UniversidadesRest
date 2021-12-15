@@ -13,8 +13,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.ibm.academia.apirest.datos.DatosDummy;
-import com.ibm.academia.apirest.entities.Alumno;
-import com.ibm.academia.apirest.entities.Persona;
+import com.ibm.academia.apirest.models.entities.Alumno;
+import com.ibm.academia.apirest.models.entities.Persona;
 import com.ibm.academia.apirest.repositories.AlumnoRepository;
 
 public class AlumnoDAOImplTest {
