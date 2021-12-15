@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,13 +18,14 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-//@Table(name = "alumnos" , schema = "universidad")
-@Table(name = "alumnos")
+@Table(name = "alumnos" , schema = "universidad")
+//@Table(name = "alumnos")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Alumno extends Persona {
 	
 	@ManyToOne(optional = true , fetch = FetchType.LAZY , cascade = { CascadeType.PERSIST , CascadeType.MERGE })
 	@JoinColumn(name = "carrera_id")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "alumnos"})
 	private Carrera carrera;
 	
 	public Alumno(Integer id , String nombre , String apellido , String dni , Direccion direccion) {

@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,8 +23,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-//@Table(name = "profesores" , schema = "universidad")
-@Table(name = "profesores")
+@Table(name = "profesores" , schema = "universidad")
+//@Table(name = "profesores")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona {
 
@@ -32,10 +34,11 @@ public class Profesor extends Persona {
 	@ManyToMany(fetch = FetchType.LAZY , cascade = { CascadeType.PERSIST , CascadeType.MERGE })
 	@JoinTable(
 			name = "profesor_carrera" , 
-//			schema = "universidad" , 
+			schema = "universidad" , 
 			joinColumns = @JoinColumn(name = "profesor_id") , 
 			inverseJoinColumns = @JoinColumn(name = "carrera_id")
 	)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "profesores"})
 	private Set<Carrera> carreras;
 
 	public Profesor(Integer id , String nombre , String apellido , String dni , Direccion direccion , BigDecimal sueldo) {

@@ -16,6 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,20 +31,25 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-//@Table(name = "carreras", schema = "universidad")
-@Table(name = "carreras")
+@Table(name = "carreras", schema = "universidad")
+//@Table(name = "carreras")
 public class Carrera implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "No puede ser nulo")
+	@NotEmpty(message = "No puede ser vacio")
+	@Size(max = 80, min = 5)
 	@Column(name = "nombre", unique = true, nullable = false, length = 80)
 	private String nombre;
 
+	@Positive(message = "Debe ser mayor a cero")
 	@Column(name = "cantidad_materias")
 	private Integer cantidadMaterias;
 
+	@Positive(message = "Debe ser mayor a cero")
 	@Column(name = "cantidad_anios")
 	private Integer cantidadAnios;
 
@@ -49,9 +60,11 @@ public class Carrera implements Serializable {
 	private Date fechaModificacion;
 
 	@OneToMany(mappedBy = "carrera", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer","carrera"})
 	private Set<Alumno> alumnos;
 
 	@ManyToMany(mappedBy = "carreras", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer","carreras"})
 	private Set<Profesor> profesores;
 
 	public Carrera(Integer id, String nombre, Integer cantidadMaterias, Integer cantidadAnios) {
